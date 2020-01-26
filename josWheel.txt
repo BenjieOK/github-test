@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Test {
+ static boolean program_running_bool = false;
+ static String code_trigger_starter_string = "start";
+ static String code_trigger_ender_string = "end";
+
+ public static void main(String[] args) {
+
+ // Initialisations
+
+
+ re_run_keyboard_input(code_trigger_starter_string);
+
+
+ }
+
+ private static void re_run_keyboard_input(String code_trigger_starter_string) {
+ for (; ; ) {
+ boolean program_running_bool;
+
+ Scanner keyboard = new Scanner(System.in);
+ String keyboard_string = keyboard.nextLine();
+
+
+ if (keyboard_string.equalsIgnoreCase(code_trigger_starter_string)) {
+ //program_running_bool = true;
+
+ int x = 0;
+ int y = 5;
+
+ // 1. we need a trigger to start the code
+ //while (program_running_bool == true) {
+ // the immediate code above is the same as this very code below
+ //while (program_running_bool) {
+
+ while (x < y) {
+ System.out.println("We are still in the while : " + Integer.toString(x));
+ //+x
+ // the best way to do the above is :
+ x = x + 1; // can also be written as x++;
+ }
+ System.out.println("Hurrayyy! we are out of the loop.");
+ }
+ //x = x+1;
+ // we needed to move the code above into the if(x<y) { code block
+ else if (keyboard_string.equalsIgnoreCase(code_trigger_ender_string)) {
+ //program_running_bool = false;
+ System.out.println("GOODBYE");
+ break;
+ } else {
+ System.out.println("Please restart and enter start to run code");
+ }
+ // 2. we need a trigger to end the code.
+
+ } // End of while loop
+ }
+}
